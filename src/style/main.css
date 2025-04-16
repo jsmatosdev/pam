@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    width: 100%;
+    height: 100vw;
+    position: relative; /* Adicionado para referência do header absoluto */
+}
+
+/* Cabeçalho */
+.hero {
+    position: relative;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 20; 
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.9), rgba(255, 20, 147, 0.9)); /* Gradiente rosa */
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 2s ease-out; /* Animação de entrada */
+    width: 200px!important;
+}
+
+.titulo h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sub-titulo h3 {
+    margin: 10px 0 0;
+    font-size: 20px;
+    color: #fff;
+    font-weight: normal;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação de entrada */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Efeito de hover no cabeçalho */
+.hero:hover {
+    transform: translateX(-50%) scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Lista de imagens */
+.lista {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 50px; /* Espaçamento para evitar sobreposição com o header */
+    padding: 20px; /* Adicionado para dar um pouco de espaço nas laterais */
+    
+
+}
+
+.item {
+    width: 250px;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    transition: 1s;
+
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+p {
+    background: rgba(0, 0, 0, 0.5)!important; /* Fundo preto com 50% de transparência */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+    backdrop-filter: blur(5px); /* Aplica um desfoque ao fundo */
+    
+    
+}
+
+p {
+    color: rgb(255, 255, 255); /* Texto 100% visível */
+    position: relative; /* Garante que o texto não seja afetado pelo fundo */
+}
+
+.item p {
+    color: rgb(255, 255, 255);
+    width: 80%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 1s;
+    opacity: 0;
+    text-align: center;
+    
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item:hover p {
+    opacity: 1;
+    top: 50%;
+}
+
+.lista:hover .item:not(:hover) {
+    filter: blur(5px);
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 600px) {
+    .hero {
+        padding: 15px 20px; /* Padding menor para mobile */
+        width: 75%; /* Largura maior para mobile */
+    }
+
+    .titulo h1 {
+        font-size: 24px; /* Tamanho menor para mobile */
+    }
+
+    .sub-titulo h3 {
+        font-size: 16px; /* Tamanho menor para mobile */
+    }
+
+    .lista {
+        margin-top: 20px; /* Espaçamento menor para mobile */
+        flex-direction: column; /* Itens em coluna para mobile */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .item {
+        width: 90%; /* Largura maior para mobile */
+        height: auto; /* Altura automática para mobile */
+    }
+}
+
+
